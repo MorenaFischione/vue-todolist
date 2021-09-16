@@ -23,10 +23,11 @@
     <div id="app" class="container">
         <div class="wrapper">
             <h1>To do List:</h1>
-            <input class="aggiungi" type="text" placeholder="Aggiungi elemento alla lista">
-            <button class="invio">Aggiungi</button>
+            <input v-model="newToDo" class="aggiungi" type="text" placeholder="Aggiungi elemento alla lista"
+            @keyup.enter="addToDoElement">
+            <button @click="addToDoElement" class="invio">Aggiungi</button>
             <ul>
-                <li class="lista" v-for="(element, index) in toDoList">{{element}} {{index}}
+                <li class="lista" v-for="(element, index) in toDoList">{{element}} 
                     <i class="fas fa-times-circle icone" @click="removeElementList(index);"></i>
                 </li>
             </ul>
